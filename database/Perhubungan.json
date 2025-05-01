@@ -1,0 +1,17 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80186500000002,-7.2948299999999335]},"properties":{"Objek":"Terminal Keputih","Long":112.801865,"Lat":-7.29483,"Keterangan":"Perhubungan"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79322300000001,-7.290607999999963]},"properties":{"Objek":"Halte Universitas Hang Tuah","Long":112.793223,"Lat":-7.290608,"Keterangan":"Perhubungan"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79314700000009,-7.275777999999946]},"properties":{"Objek":"Halte PENS Trans Semanggi","Long":112.793147,"Lat":-7.275778,"Keterangan":"Perhubungan"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80177100000003,-7.292336999999975]},"properties":{"Objek":"Halte Bumi Marina Emas A","Long":112.801771,"Lat":-7.292337,"Keterangan":"Perhubungan"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80184200000008,-7.292261999999937]},"properties":{"Objek":"Halte Bumi Marina Emas B","Long":112.801842,"Lat":-7.292262,"Keterangan":"Perhubungan"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79947200000004,-7.290671999999972]},"properties":{"Objek":"Halte kantor LPMK Keputih A","Long":112.799472,"Lat":-7.290672,"Keterangan":"Perhubungan"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79929100000004,-7.290439999999933]},"properties":{"Objek":"Halte kantor LPMK Keputih B","Long":112.799291,"Lat":-7.29044,"Keterangan":"Perhubungan"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79652700000008,-7.290191999999934]},"properties":{"Objek":"Halte Keputih Makam A","Long":112.796527,"Lat":-7.290192,"Keterangan":"Perhubungan"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79650800000002,-7.290156999999965]},"properties":{"Objek":"Halte Keputih Makam B","Long":112.796508,"Lat":-7.290157,"Keterangan":"Perhubungan"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80347100000006,-7.291429999999934]},"properties":{"Objek":"Halte KTT 1A","Long":112.803471,"Lat":-7.29143,"Keterangan":"Perhubungan"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80348400000003,-7.291478999999981]},"properties":{"Objek":"Halte KTT 1B","Long":112.803484,"Lat":-7.291479,"Keterangan":"Perhubungan"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80680400000006,-7.291781999999955]},"properties":{"Objek":"Halte KTT 2A","Long":112.806804,"Lat":-7.291782,"Keterangan":"Perhubungan"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80686800000001,-7.29182899999995]},"properties":{"Objek":"Halte KTT 2B","Long":112.806868,"Lat":-7.291829,"Keterangan":"Perhubungan"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.81134200000008,-7.292437999999947]},"properties":{"Objek":"Halte Simpang KTT","Long":112.811342,"Lat":-7.292438,"Keterangan":"Perhubungan"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[122.81216500000005,-7.290547999999944]},"properties":{"Objek":"Halte apartemen DIan Sukolilo Regency","Long":122.812165,"Lat":-7.290548,"Keterangan":"Perhubungan"}}
+]}

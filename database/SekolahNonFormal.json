@@ -1,0 +1,16 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79599600000006,-7.288998999999933]},"properties":{"Objek":"KB & TK Sepuluh Nopember","Long":112.795996,"Lat":-7.288999,"Keterangan":"Sekolah Non-Formal"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79844100000003,-7.290294999999958]},"properties":{"Objek":"TPQ Nurul Hikmah","Long":112.798441,"Lat":-7.290295,"Keterangan":"Sekolah Non-Formal"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79945900000007,-7.288927999999942]},"properties":{"Objek":"TKA/TPA Baitul Muttaqin","Long":112.799459,"Lat":-7.288928,"Keterangan":"Sekolah Non-Formal"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79993600000012,-7.288569999999936]},"properties":{"Objek":"KB Aisyiyah 25","Long":112.799936,"Lat":-7.28857,"Keterangan":"Sekolah Non-Formal"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79993600000012,-7.288569999999936]},"properties":{"Objek":"TK Aisyiyah 52","Long":112.799936,"Lat":-7.28857,"Keterangan":"Sekolah Non-Formal"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80097,-7.289771999999971]},"properties":{"Objek":"TK Bintang Kecil","Long":112.80097,"Lat":-7.289772,"Keterangan":"Sekolah Non-Formal"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80101400000001,-7.289758999999947]},"properties":{"Objek":"KB Bintang Kecil","Long":112.801014,"Lat":-7.289759,"Keterangan":"Sekolah Non-Formal"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80096700000001,-7.289768999999978]},"properties":{"Objek":"PAUD Keputih Ceria","Long":112.800967,"Lat":-7.289769,"Keterangan":"Sekolah Non-Formal"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80935700000009,-7.2894229999999425]},"properties":{"Objek":"KB & TK Chodidjah","Long":112.809357,"Lat":-7.289423,"Keterangan":"Sekolah Non-Formal"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80951500000003,-7.2887289999999325]},"properties":{"Objek":"TK Thaybah","Long":112.809515,"Lat":-7.288729,"Keterangan":"Sekolah Non-Formal"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79851900000006,-7.290421999999978]},"properties":{"Objek":"KB-TK YAPITA","Long":112.798519,"Lat":-7.290422,"Keterangan":"Sekolah Non-Formal"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80090700000005,-7.296185999999977]},"properties":{"Objek":"KB-TK Mutiara Hati","Long":112.800907,"Lat":-7.296186,"Keterangan":"Sekolah Non-Formal"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79999300000009,-7.301098999999965]},"properties":{"Objek":"KB-TK Pondok Kasih","Long":112.799993,"Lat":-7.301099,"Keterangan":"Sekolah Non-Formal"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79766900000004,-7.292517999999973]},"properties":{"Objek":"KB_TK As-Sholihin","Long":112.797669,"Lat":-7.292518,"Keterangan":"Sekolah Non-Formal"}}
+]}

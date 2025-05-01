@@ -1,0 +1,4 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79416800000001,-7.283849999999973]},"properties":{"Nama":"Kantor Pos ITS","Latitude":-7.28385,"Longituude":112.794168,"Kategori":"Telekomunikasi"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79627000000005,-7.29061160699996]},"properties":{"Nama":"Kantor Pos ITS","Latitude":-7.29061160699,"Longituude":112.79627,"Kategori":"Telekomunikasi"}}
+]}

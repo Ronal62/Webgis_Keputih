@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Dewi Bootstrap Template</title>
+  <title><?php echo isset($page_title) ? $page_title : 'Dewi Bootstrap Template'; ?></title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -24,28 +24,16 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-
   <!-- Main CSS File -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <link href="peta-kelurahan.css" rel="stylesheet">
+  <link href="peta.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Dewi
-  * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
-
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
+      <a href="index.php" class="logo d-flex align-items-center me-auto">
         <img src="assets/img/logo2.png" alt="" style="height: 80px; width: auto;">
         <img src="assets/img/logo3.png" alt="" style="height: 80px; width: auto;">
       </a>
@@ -55,39 +43,16 @@
           <li><a href="index.php" class="active">Home</a></li>
           <li class="dropdown"><a href="#"><span>Menu</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="peta-batas-kelurahan-titik-kartometrik.php">Peta Batas Kelurahan & Titik Kartometrik</a></li>
-              <li><a href="peta-batas-rw.php">Peta Batas RW</a></li>
+              <li><a href="peta.php">Peta & Titik Kartometrik</a></li>
               <li><a href="peta-batas-rt.php">Peta Batas RT</a></li>
               <li><a href="peta-hasil-inventarisasi.php">Peta Hasil Inventarisasi</a></li>
             </ul>
           </li>
-          <!-- <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li> -->
-          <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li> -->
           <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="cta-btn" href="index.html#about">Get Started</a>
-
+      <a class="cta-btn" href="index.php#about">Get Started</a>
     </div>
   </header>

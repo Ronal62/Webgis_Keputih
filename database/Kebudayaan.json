@@ -1,0 +1,5 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79430000000002,-7.2888999999999555]},"properties":{"Nama":"Omah Ecoprint","Latitude":-7.2889,"Longituude":112.7943,"Kategori":"Kebudayaan"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.79360000000008,-7.289499999999975]},"properties":{"Nama":"Rumah Rajut","Latitude":-7.2895,"Longituude":112.7936,"Kategori":"Kebudayaan"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.7967000000001,-7.288399999999967]},"properties":{"Nama":"Rumah Sulam","Latitude":-7.2884,"Longituude":112.7967,"Kategori":"Kebudayaan"}}
+]}

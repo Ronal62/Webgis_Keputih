@@ -27,11 +27,11 @@
       </div><!-- End Section Title -->
 
       <div class="container map-container" data-aos="fade-up">
-       <div id="map"></div>
+       <div id="batas-rw"></div>
       </div>
 
     </section><!-- /Starter Section Section -->
 
   </main>
-
+  
 <?php include 'footer.php'; ?>

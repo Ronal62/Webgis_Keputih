@@ -1,0 +1,7 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80190000000005,-7.295099999999934]},"properties":{"Objek":"Taman Harmoni","Long":112.8019,"Lat":-7.2951,"Keterangan":"Pariwisata"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80320000000006,-7.294399999999939]},"properties":{"Objek":"Hutan Bambu","Long":112.8032,"Lat":-7.2944,"Keterangan":"Pariwisata"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80380000000002,-7.299099999999953]},"properties":{"Objek":"Taman PUPR","Long":112.8038,"Lat":-7.2991,"Keterangan":"Pariwisata"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.80570000000012,-7.296099999999967]},"properties":{"Objek":"Taman Incinerator","Long":112.8057,"Lat":-7.2961,"Keterangan":"Pariwisata"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[112.8062000000001,-7.296299999999974]},"properties":{"Objek":"Creative Public Space","Long":112.8062,"Lat":-7.2963,"Keterangan":"Pariwisata"}}
+]}
