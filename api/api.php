@@ -10,9 +10,11 @@ if ($type === 'kelurahan') {
     $geojsonFile = "../database/bataskelurahan.json";
 } elseif ($type === 'rw') {
     $geojsonFile = "../database/ALL_RW.json";
+} elseif ($type === 'rt') {
+    $geojsonFile = "../database/ALLRT.json";
 } else {
     http_response_code(400);
-    echo json_encode(["message" => "Parameter 'type' tidak valid. Gunakan 'kelurahan' atau 'rw'."]);
+    echo json_encode(["message" => "Parameter 'type' tidak valid. Gunakan 'kelurahan', 'rw', atau 'rt'."]);
     exit;
 }
 

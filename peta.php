@@ -34,9 +34,13 @@ include 'header.php';
                 <input class="form-check-input" type="checkbox" id="toggle-batas-kelurahan" checked>
                 <label class="form-check-label" for="toggle-batas-kelurahan">Batas Kelurahan</label>
             </div>
-            <div class="form-check form-switch d-inline-block">
+            <div class="form-check form-switch d-inline-block me-4">
                 <input class="form-check-input" type="checkbox" id="toggle-batas-rw" checked>
                 <label class="form-check-label" for="toggle-batas-rw">Batas RW</label>
+            </div>
+            <div class="form-check form-switch d-inline-block">
+                <input class="form-check-input" type="checkbox" id="toggle-batas-rt" checked>
+                <label class="form-check-label" for="toggle-batas-rt">Batas RT</label>
             </div>
         </div>
         <div class="row">

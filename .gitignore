@@ -1,0 +1,23 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+# Ignore node modules and vendor (if any)
+node_modules/
+vendor/
+
+# Ignore environment files
+.env
+.env.*
+
+# Ignore IDE/editor folders
+.vscode/
+.idea/
+
+# Ignore deployment config backup
+windsurf_deployment.yaml

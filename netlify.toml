@@ -1,0 +1,10 @@
+[build]
+publish = "."
+
+[context.production.environment]
+PHP_VERSION = "8.1"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/api/:splat"
+  status = 200

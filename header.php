@@ -44,7 +44,6 @@
           <li class="dropdown"><a href="#"><span>Menu</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="peta.php">Peta & Titik Kartometrik</a></li>
-              <li><a href="peta-batas-rt.php">Peta Batas RT</a></li>
               <li><a href="peta-hasil-inventarisasi.php">Peta Hasil Inventarisasi</a></li>
             </ul>
           </li>
