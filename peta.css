@@ -1,7 +1,7 @@
 .map-container {
   height: 80vh;
-  min-height: 400px; /* Cegah peta terlalu kecil */
-  position: relative; /* Dukung elemen absolut Leaflet */
+  min-height: 400px;
+  position: relative;
 }
 
 #batas-kelurahan {
@@ -13,16 +13,42 @@
   margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem; /* Gantikan me-4 untuk jarak antar toggle */
+  gap: 1rem;
   justify-content: center;
 }
 
-/* Pastikan toggle mudah diklik di perangkat sentuh */
 .form-check-input {
   cursor: pointer;
 }
 
 .form-check-label {
   cursor: pointer;
-  user-select: none; /* Cegah seleksi teks */
+  user-select: none;
+}
+
+/* Gaya untuk ikon inventarisasi */
+.perhubungan-icon, .pariwisata-icon, .telekomunikasi-icon, .sekolah-non-formal-icon, .kebudayaan-icon {
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5); /* Bayangan untuk kontras */
+}
+
+/* Gaya untuk popup */
+.leaflet-popup-content {
+  max-width: 250px;
+}
+
+.leaflet-popup-content img {
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Responsivitas untuk toggle */
+@media (max-width: 576px) {
+  .toggle-container {
+      flex-direction: row;
+      justify-content: center;
+  }
+  .form-check {
+      margin: 0.5rem;
+  }
 }

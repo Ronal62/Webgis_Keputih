@@ -3,7 +3,7 @@
     <div class="row gy-4">
       <div class="col-lg-4 col-md-6 footer-about">
         <a href="index.php" class="logo d-flex align-items-center">
-          <span class="sitename">Dewi</span>
+          <span class="sitename">Peta Keputih</span>
         </a>
         <div class="footer-contact pt-3">
           <p>A108 Adam Street</p>

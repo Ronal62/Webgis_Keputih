@@ -46,6 +46,10 @@ include 'header.php';
                 <input class="form-check-input" type="checkbox" id="toggle-batas-patok-batas-keputih" checked>
                 <label class="form-check-label" for="toggle-batas-patok-batas-keputih">Patok Batas Keputih</label>
             </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="toggle-inventarisasi" checked>
+                <label class="form-check-label" for="toggle-inventarisasi">Inventarisasi</label>
+            </div>
         </div>
         <div class="row">
             <div class="col-12">

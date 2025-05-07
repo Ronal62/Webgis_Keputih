@@ -4,11 +4,11 @@ header("Content-Type: application/json; charset=UTF-8");
 header("Cache-Control: public, max-age=3600");
 
 $type = isset($_GET['type']) ? $_GET['type'] : '';
-$allowedTypes = ['kelurahan', 'rw', 'rt', 'patok_batas_keputih'];
+$allowedTypes = ['kelurahan', 'rw', 'rt', 'patok_batas_keputih', 'sekolah_non_formal', 'telekomunikasi', 'pariwisata', 'kebudayaan', 'perhubungan'];
 
 if (!in_array($type, $allowedTypes)) {
     http_response_code(400);
-    echo json_encode(["message" => "Parameter 'type' tidak valid. Gunakan 'kelurahan', 'rw', 'rt', atau 'patok_batas_keputih'."]);
+    echo json_encode(["message" => "Parameter 'type' tidak valid. Gunakan 'kelurahan', 'rw', 'rt', 'patok_batas_keputih', 'sekolah_non_formal', 'telekomunikasi', 'pariwisata', 'kebudayaan', atau 'perhubungan'."]);
     exit;
 }
 
@@ -27,6 +27,21 @@ switch ($type) {
         break;
     case 'patok_batas_keputih':
         $geojsonFile = $baseDir . 'PatokBatasKeputih.json';
+        break;
+    case 'sekolah_non_formal':
+        $geojsonFile = $baseDir . 'SekolahNonFormal.json';
+        break;
+    case 'telekomunikasi':
+        $geojsonFile = $baseDir . 'Telekomunikasi.json';
+        break;
+    case 'pariwisata':
+        $geojsonFile = $baseDir . 'Pariwisata.json';
+        break;
+    case 'kebudayaan':
+        $geojsonFile = $baseDir . 'Kebudayaan.json';
+        break;
+    case 'perhubungan':
+        $geojsonFile = $baseDir . 'Perhubungan.json';
         break;
 }
 

@@ -21,11 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
         attribution: '© <a href="https://www.openstreetmap.org/copyright">Kontributor OpenStreetMap</a>',
     }).addTo(peta);
 
-    // Lapisan untuk batas kelurahan, RW, RT, dan Patok Batas Keputih
+    // Lapisan untuk batas kelurahan, RW, RT, Patok Batas Keputih, dan inventarisasi
     let batasKelurahanLayer = null;
     let batasRwLayer = null;
     let batasRtLayer = null;
     let batasPatokBatasKeputihLayer = null;
+    let sekolahNonFormalLayer = null;
+    let telekomunikasiLayer = null;
+    let pariwisataLayer = null;
+    let kebudayaanLayer = null;
+    let perhubunganLayer = null;
 
     // Palet warna untuk RW dan RT
     const rwColorPalettes = {
@@ -48,6 +53,47 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(errorDiv);
         setTimeout(() => errorDiv.remove(), 5000);
     }
+
+    // Definisi ikon untuk setiap jenis inventarisasi
+    const perhubunganIcon = L.divIcon({
+        className: "perhubungan-icon",
+        html: '<i class="fas fa-bus" style="color: blue; font-size: 24px;"></i>',
+        iconSize: [30, 30],
+        iconAnchor: [15, 30],
+        popupAnchor: [0, -30]
+    });
+
+    const pariwisataIcon = L.divIcon({
+        className: "pariwisata-icon",
+        html: '<i class="fas fa-tree" style="color: green; font-size: 24px;"></i>',
+        iconSize: [30, 30],
+        iconAnchor: [15, 30],
+        popupAnchor: [0, -30]
+    });
+
+    const telekomunikasiIcon = L.divIcon({
+        className: "telekomunikasi-icon",
+        html: '<i class="fas fa-broadcast-tower" style="color: purple; font-size: 24px;"></i>',
+        iconSize: [30, 30],
+        iconAnchor: [15, 30],
+        popupAnchor: [0, -30]
+    });
+
+    const sekolahNonFormalIcon = L.divIcon({
+        className: "sekolah-non-formal-icon",
+        html: '<i class="fas fa-book" style="color: yellow; font-size: 24px;"></i>',
+        iconSize: [30, 30],
+        iconAnchor: [15, 30],
+        popupAnchor: [0, -30]
+    });
+
+    const kebudayaanIcon = L.divIcon({
+        className: "kebudayaan-icon",
+        html: '<i class="fas fa-paint-brush" style="color: red; font-size: 24px;"></i>',
+        iconSize: [30, 30],
+        iconAnchor: [15, 30],
+        popupAnchor: [0, -30]
+    });
 
     // Fungsi untuk mengambil dan menampilkan data batas kelurahan
     function loadBatasKelurahan() {
@@ -201,13 +247,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         };
                     },
                     onEachFeature: function (feature, layer) {
-                        if (feature.properties) {
-                            layer.bindPopup(
-                                `<b>Patok Batas Keputih</b><br>` +
-                                (feature.properties.NAMA ? `<b>Nama:</b> ${feature.properties.NAMA}<br>` : "") +
-                                (feature.properties.KETERANGAN ? `<b>Keterangan:</b> ${feature.properties.KETERANGAN}<br>` : "")
-                            );
-                        }
+                        const nama = feature.properties.NAMA || "Tidak Diketahui";
+                        const keterangan = feature.properties.KETERANGAN || "";
+                        layer.bindPopup(
+                            `<b>Nama Objek:</b> ${nama}<br>` +
+                            `<b>Jenis Objek:</b> Patok Batas Keputih<br>` +
+                            (keterangan ? `<b>Keterangan:</b> ${keterangan}<br>` : "")
+                        );
                     },
                 });
 
@@ -222,11 +268,181 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
+    // Fungsi untuk mengambil dan menampilkan data Sekolah Non-Formal
+    function loadSekolahNonFormal() {
+        fetch("api/api.php?type=sekolah_non_formal")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Gagal mengambil data Sekolah Non-Formal dari API");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                sekolahNonFormalLayer = L.geoJSON(data, {
+                    pointToLayer: function (feature, latlng) {
+                        return L.marker(latlng, { icon: sekolahNonFormalIcon });
+                    },
+                    onEachFeature: function (feature, layer) {
+                        const nama = feature.properties.Objek || "Tidak Diketahui";
+                        layer.bindPopup(
+                            `<b>Nama Objek:</b> ${nama}<br>` +
+                            `<b>Jenis Objek:</b> Sekolah Non-Formal<br>` +
+                            `<img src="https://its.id/m/InventarisasiKEL2" alt="Foto Dokumentasi" style="max-width: 200px; height: auto;" onerror="this.src='https://via.placeholder.com/200x150?text=Foto+Tidak+Tersedia';">`
+                        );
+                    },
+                });
+                if (document.getElementById("toggle-inventarisasi").checked) {
+                    sekolahNonFormalLayer.addTo(peta);
+                }
+            })
+            .catch((error) => {
+                console.error("Gagal memuat data Sekolah Non-Formal:", error);
+                showError("Tidak dapat memuat data Sekolah Non-Formal. Silakan coba lagi nanti.");
+            });
+    }
+
+    // Fungsi untuk mengambil dan menampilkan data Telekomunikasi
+    function loadTelekomunikasi() {
+        fetch("api/api.php?type=telekomunikasi")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Gagal mengambil data Telekomunikasi dari API");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                telekomunikasiLayer = L.geoJSON(data, {
+                    pointToLayer: function (feature, latlng) {
+                        return L.marker(latlng, { icon: telekomunikasiIcon });
+                    },
+                    onEachFeature: function (feature, layer) {
+                        const nama = feature.properties.Nama || "Tidak Diketahui";
+                        layer.bindPopup(
+                            `<b>Nama Objek:</b> ${nama}<br>` +
+                            `<b>Jenis Objek:</b> Telekomunikasi<br>` +
+                            `<img src="https://its.id/m/InventarisasiKEL2" alt="Foto Dokumentasi" style="max-width: 200px; height: auto;" onerror="this.src='https://via.placeholder.com/200x150?text=Foto+Tidak+Tersedia';">`
+                        );
+                    },
+                });
+                if (document.getElementById("toggle-inventarisasi").checked) {
+                    telekomunikasiLayer.addTo(peta);
+                }
+            })
+            .catch((error) => {
+                console.error("Gagal memuat data Telekomunikasi:", error);
+                showError("Tidak dapat memuat data Telekomunikasi. Silakan coba lagi nanti.");
+            });
+    }
+
+    // Fungsi untuk mengambil dan menampilkan data Pariwisata
+    function loadPariwisata() {
+        fetch("api/api.php?type=pariwisata")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Gagal mengambil data Pariwisata dari API");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                pariwisataLayer = L.geoJSON(data, {
+                    pointToLayer: function (feature, latlng) {
+                        return L.marker(latlng, { icon: pariwisataIcon });
+                    },
+                    onEachFeature: function (feature, layer) {
+                        const nama = feature.properties.Objek || "Tidak Diketahui";
+                        layer.bindPopup(
+                            `<b>Nama Objek:</b> ${nama}<br>` +
+                            `<b>Jenis Objek:</b> Pariwisata<br>` +
+                            `<img src="https://its.id/m/InventarisasiKEL2" alt="Foto Dokumentasi" style="max-width: 200px; height: auto;" onerror="this.src='https://via.placeholder.com/200x150?text=Foto+Tidak+Tersedia';">`
+                        );
+                    },
+                });
+                if (document.getElementById("toggle-inventarisasi").checked) {
+                    pariwisataLayer.addTo(peta);
+                }
+            })
+            .catch((error) => {
+                console.error("Gagal memuat data Pariwisata:", error);
+                showError("Tidak dapat memuat data Pariwisata. Silakan coba lagi nanti.");
+            });
+    }
+
+    // Fungsi untuk mengambil dan menampilkan data Kebudayaan
+    function loadKebudayaan() {
+        fetch("api/api.php?type=kebudayaan")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Gagal mengambil data Kebudayaan dari API");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                kebudayaanLayer = L.geoJSON(data, {
+                    pointToLayer: function (feature, latlng) {
+                        return L.marker(latlng, { icon: kebudayaanIcon });
+                    },
+                    onEachFeature: function (feature, layer) {
+                        const nama = feature.properties.Nama || "Tidak Diketahui";
+                        layer.bindPopup(
+                            `<b>Nama Objek:</b> ${nama}<br>` +
+                            `<b>Jenis Objek:</b> Kebudayaan<br>` +
+                            `<img src="https://its.id/m/InventarisasiKEL2" alt="Foto Dokumentasi" style="max-width: 200px; height: auto;" onerror="this.src='https://via.placeholder.com/200x150?text=Foto+Tidak+Tersedia';">`
+                        );
+                    },
+                });
+                if (document.getElementById("toggle-inventarisasi").checked) {
+                    kebudayaanLayer.addTo(peta);
+                }
+            })
+            .catch((error) => {
+                console.error("Gagal memuat data Kebudayaan:", error);
+                showError("Tidak dapat memuat data Kebudayaan. Silakan coba lagi nanti.");
+            });
+    }
+
+    // Fungsi untuk mengambil dan menampilkan data Perhubungan
+    function loadPerhubungan() {
+        fetch("api/api.php?type=perhubungan")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Gagal mengambil data Perhubungan dari API");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                perhubunganLayer = L.geoJSON(data, {
+                    pointToLayer: function (feature, latlng) {
+                        return L.marker(latlng, { icon: perhubunganIcon });
+                    },
+                    onEachFeature: function (feature, layer) {
+                        const nama = feature.properties.Objek || "Tidak Diketahui";
+                        layer.bindPopup(
+                            `<b>Nama Objek:</b> ${nama}<br>` +
+                            `<b>Jenis Objek:</b> Perhubungan<br>` +
+                            `<img src="https://its.id/m/InventarisasiKEL2" alt="Foto Dokumentasi" style="max-width: 200px; height: auto;" onerror="this.src='https://via.placeholder.com/200x150?text=Foto+Tidak+Tersedia';">`
+                        );
+                    },
+                });
+                if (document.getElementById("toggle-inventarisasi").checked) {
+                    perhubunganLayer.addTo(peta);
+                }
+            })
+            .catch((error) => {
+                console.error("Gagal memuat data Perhubungan:", error);
+                showError("Tidak dapat memuat data Perhubungan. Silakan coba lagi nanti.");
+            });
+    }
+
     // Muat data awal
     loadBatasKelurahan();
     loadBatasRw();
     loadBatasRt();
     loadBatasPatokBatasKeputih();
+    loadSekolahNonFormal();
+    loadTelekomunikasi();
+    loadPariwisata();
+    loadKebudayaan();
+    loadPerhubungan();
 
     // Logika toggle untuk batas kelurahan
     document.getElementById("toggle-batas-kelurahan").addEventListener("change", function () {
@@ -277,6 +493,23 @@ document.addEventListener("DOMContentLoaded", function () {
             if (batasPatokBatasKeputihLayer) {
                 peta.removeLayer(batasPatokBatasKeputihLayer);
             }
+        }
+    });
+
+    // Logika toggle untuk Inventarisasi (mengontrol semua layer inventarisasi)
+    document.getElementById("toggle-inventarisasi").addEventListener("change", function () {
+        if (this.checked) {
+            if (sekolahNonFormalLayer) sekolahNonFormalLayer.addTo(peta);
+            if (telekomunikasiLayer) telekomunikasiLayer.addTo(peta);
+            if (pariwisataLayer) pariwisataLayer.addTo(peta);
+            if (kebudayaanLayer) kebudayaanLayer.addTo(peta);
+            if (perhubunganLayer) perhubunganLayer.addTo(peta);
+        } else {
+            if (sekolahNonFormalLayer) peta.removeLayer(sekolahNonFormalLayer);
+            if (telekomunikasiLayer) peta.removeLayer(telekomunikasiLayer);
+            if (pariwisataLayer) peta.removeLayer(pariwisataLayer);
+            if (kebudayaanLayer) peta.removeLayer(kebudayaanLayer);
+            if (perhubunganLayer) peta.removeLayer(perhubunganLayer);
         }
     });
 });
