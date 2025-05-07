@@ -1,5 +1,17 @@
-// Inisialisasi peta saat dokumen selesai dimuat
 document.addEventListener("DOMContentLoaded", function () {
+    // Pastikan Leaflet tersedia
+    if (typeof L === "undefined") {
+        console.error("Leaflet tidak dimuat. Pastikan file leaflet.js dimuat sebelum peta.js");
+        return;
+    }
+
+    // Pastikan elemen dengan ID batas-kelurahan ada
+    const mapContainer = document.getElementById("batas-kelurahan");
+    if (!mapContainer) {
+        console.error("Elemen dengan ID 'batas-kelurahan' tidak ditemukan di DOM");
+        return;
+    }
+
     // Buat instance peta dan atur tampilan awal ke Surabaya, Indonesia
     const peta = L.map("batas-kelurahan").setView([-7.2575, 112.7521], 12);
 
@@ -12,13 +24,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // Simpan marker titik kartometrik untuk pengelolaan performa
     const markerMap = new Map();
 
-    // Lapisan untuk batas kelurahan, RW, dan RT
+    // Lapisan untuk batas kelurahan, RW, RT, dan Patok Batas Keputih
     let batasKelurahanLayer = null;
     let batasRwLayer = null;
     let batasRtLayer = null;
+    let batasPatokBatasKeputihLayer = null;
     const kartometrikKelurahanLayerGroup = L.layerGroup();
     const kartometrikRwLayerGroup = L.layerGroup();
     const kartometrikRtLayerGroup = L.layerGroup();
+    const kartometrikPatokBatasKeputihLayerGroup = L.layerGroup();
 
     // Palet warna untuk RW dan RT
     const rwColorPalettes = {
@@ -26,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         2: ["#90EE90", "#32CD32", "#228B22", "#006400", "#008000"], // Hijau
         3: ["#FFB6C1", "#FF69B4", "#C71585", "#DB7093", "#FF1493"], // Merah muda
         4: ["#FFD700", "#FFA500", "#FF8C00", "#DAA520", "#B8860B"], // Kuning-Oranye
-        5: ["#E6E6FA", "#D8BFD8", "#9932CC", "#8A2BE2", "#4B0082"], // Ungu
+        5: ["#E metaphorical6E6FA", "#D8BFD8", "#9932CC", "#8A2BE2", "#4B0082"], // Ungu
         6: ["#FFE4E1", "#F08080", "#DC143C", "#B22222", "#8B0000"], // Merah
         7: ["#98FB98", "#00FF7F", "#00FA9A", "#20B2AA", "#008B8B"], // Hijau muda
         8: ["#F0F8FF", "#B0E0E6", "#5F9EA0", "#4682B4", "#191970"], // Biru tua
@@ -173,12 +187,55 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
+    // Fungsi untuk mengambil dan menampilkan data batas Patok Batas Keputih
+    function loadBatasPatokBatasKeputih() {
+        fetch("api/api.php?type=patok_batas_keputih")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Gagal mengambil data batas Patok Batas Keputih dari API");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                batasPatokBatasKeputihLayer = L.geoJSON(data, {
+                    style: function (feature) {
+                        return {
+                            color: "#800080", // Warna ungu untuk Patok Batas Keputih
+                            weight: 2,
+                            opacity: 1,
+                            fillOpacity: 0.2,
+                            dashArray: "5, 5",
+                        };
+                    },
+                    onEachFeature: function (feature, layer) {
+                        if (feature.properties) {
+                            layer.bindPopup(
+                                `<b>Patok Batas Keputih</b><br>` +
+                                (feature.properties.NAMA ? `<b>Nama:</b> ${feature.properties.NAMA}<br>` : "") +
+                                (feature.properties.KETERANGAN ? `<b>Keterangan:</b> ${feature.properties.KETERANGAN}<br>` : "")
+                            );
+                        }
+                    },
+                });
+
+                batasPatokBatasKeputihLayer.data = data;
+                if (document.getElementById("toggle-batas-patok-batas-keputih").checked) {
+                    batasPatokBatasKeputihLayer.addTo(peta);
+                }
+            })
+            .catch((error) => {
+                console.error("Gagal memuat data batas Patok Batas Keputih:", error);
+                showError("Tidak dapat memuat data batas Patok Batas Keputih. Silakan coba lagi nanti.");
+            });
+    }
+
     // Event listener untuk zoom
     peta.on("zoomend", function () {
         const currentZoom = peta.getZoom();
         const isKelurahanActive = document.getElementById("toggle-batas-kelurahan").checked;
         const isRwActive = document.getElementById("toggle-batas-rw").checked;
         const isRtActive = document.getElementById("toggle-batas-rt").checked;
+        const isPatokBatasKeputihActive = document.getElementById("toggle-batas-patok-batas-keputih").checked;
 
         // Kelurahan: Tampilkan titik kartometrik
         if (currentZoom >= 15 && isKelurahanActive && batasKelurahanLayer && batasKelurahanLayer.data) {
@@ -277,9 +334,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // RT: Tampilkan titik kartometrik
         if (currentZoom >= 15 && isRtActive && batasRtLayer && batasRtLayer.data) {
             batasRtLayer.data.features.forEach((feature) => {
-                const coordinates = feature.geometry.type === "Polygon" 
-                    ? feature.geometry.coordinates[0] 
-                    : feature.geometry.type === "MultiPolygon" 
+                const coordinates = feature.geometry.type === "Polygon"
+                    ? feature.geometry.coordinates[0]
+                    : feature.geometry.type === "MultiPolygon"
                         ? feature.geometry.coordinates[0][0] // Ambil poligon pertama
                         : [];
                 coordinates.forEach((coord) => {
@@ -328,12 +385,62 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         }
+
+        // Patok Batas Keputih: Tampilkan titik kartometrik
+        if (currentZoom >= 15 && isPatokBatasKeputihActive && batasPatokBatasKeputihLayer && batasPatokBatasKeputihLayer.data) {
+            batasPatokBatasKeputihLayer.data.features.forEach((feature) => {
+                const coordinates = feature.geometry.type === "Polygon"
+                    ? feature.geometry.coordinates[0]
+                    : feature.geometry.type === "MultiPolygon"
+                        ? feature.geometry.coordinates[0][0] // Ambil poligon pertama
+                        : [];
+                coordinates.forEach((coord) => {
+                    const [lng, lat] = coord;
+                    const key = `patok-batas-keputih_${lat},${lng}`;
+                    if (!markerMap.has(key)) {
+                        const marker = L.marker([lat, lng], {
+                            icon: L.divIcon({
+                                className: "kartometrik-marker-patok-batas-keputih",
+                                html: `
+                                    <div style="
+                                        width: 12px;
+                                        height: 12px;
+                                        border-radius: 50%;
+                                        background: radial-gradient(circle, black 2px, transparent 2px);
+                                        background-size: 4px 4px;
+                                        background-color: purple;
+                                        border: 1px solid black;
+                                    "></div>
+                                `,
+                                iconSize: [12, 12],
+                            }),
+                        });
+                        marker.bindPopup(
+                            `<b>Titik Kartometrik Patok Batas Keputih</b><br>` +
+                            `Lintang: ${lat.toFixed(6)}<br>` +
+                            `Bujur: ${lng.toFixed(6)}`
+                        );
+                        markerMap.set(key, marker);
+                        marker.addTo(kartometrikPatokBatasKeputihLayerGroup);
+                    }
+                });
+            });
+            kartometrikPatokBatasKeputihLayerGroup.addTo(peta);
+        } else {
+            kartometrikPatokBatasKeputihLayerGroup.clearLayers();
+            markerMap.forEach((marker, key) => {
+                if (key.startsWith("patok-batas-keputih_")) {
+                    markerMap.delete(key);
+                }
+            });
+        }
     });
 
     // Muat data awal
     loadBatasKelurahan();
     loadBatasRw();
     loadBatasRt();
+    loadBatasPatokBatasKeputih();
 
     // Logika toggle untuk batas kelurahan
     document.getElementById("toggle-batas-kelurahan").addEventListener("change", function () {
@@ -397,6 +504,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 kartometrikRtLayerGroup.clearLayers();
                 markerMap.forEach((marker, key) => {
                     if (key.startsWith("rt_")) {
+                        markerMap.delete(key);
+                    }
+                });
+            }
+        }
+    });
+
+    // Logika toggle untuk batas Patok Batas Keputih
+    document.getElementById("toggle-batas-patok-batas-keputih").addEventListener("change", function () {
+        if (this.checked) {
+            if (batasPatokBatasKeputihLayer) {
+                batasPatokBatasKeputihLayer.addTo(peta);
+                const currentZoom = peta.getZoom();
+                if (currentZoom >= 15) {
+                    peta.fire("zoomend");
+                }
+            }
+        } else {
+            if (batasPatokBatasKeputihLayer) {
+                peta.removeLayer(batasPatokBatasKeputihLayer);
+                kartometrikPatokBatasKeputihLayerGroup.clearLayers();
+                markerMap.forEach((marker, key) => {
+                    if (key.startsWith("patok-batas-keputih_")) {
                         markerMap.delete(key);
                     }
                 });

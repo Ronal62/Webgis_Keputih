@@ -1,19 +1,7 @@
 .map-container {
   height: 80vh;
-}
-
-#map {
-  width: 100%;
-  height: 100%;
-}
-
-.batas-rw {
-  height: 80vh;
-}
-
-#batas-rw {
-  width: 100%;
-  height: 100%;
+  min-height: 400px; /* Cegah peta terlalu kecil */
+  position: relative; /* Dukung elemen absolut Leaflet */
 }
 
 #batas-kelurahan {
@@ -23,4 +11,18 @@
 
 .toggle-container {
   margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Gantikan me-4 untuk jarak antar toggle */
+  justify-content: center;
+}
+
+/* Pastikan toggle mudah diklik di perangkat sentuh */
+.form-check-input {
+  cursor: pointer;
+}
+
+.form-check-label {
+  cursor: pointer;
+  user-select: none; /* Cegah seleksi teks */
 }

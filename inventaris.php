@@ -42,10 +42,6 @@ include 'header.php';
                 <input class="form-check-input" type="checkbox" id="toggle-batas-rt" checked>
                 <label class="form-check-label" for="toggle-batas-rt">Batas RT</label>
             </div>
-            <div class="form-check form-switch d-inline-block">
-                <input class="form-check-input" type="checkbox" id="toggle-batas-patok-batas-keputih" checked>
-                <label class="form-check-label" for="toggle-batas-patok-batas-keputih">Patok Batas Keputih</label>
-            </div>
         </div>
         <div class="row">
             <div class="col-12">
