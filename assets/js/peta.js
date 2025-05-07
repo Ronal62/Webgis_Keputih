@@ -21,18 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
         attribution: '© <a href="https://www.openstreetmap.org/copyright">Kontributor OpenStreetMap</a>',
     }).addTo(peta);
 
-    // Simpan marker titik kartometrik untuk pengelolaan performa
-    const markerMap = new Map();
-
     // Lapisan untuk batas kelurahan, RW, RT, dan Patok Batas Keputih
     let batasKelurahanLayer = null;
     let batasRwLayer = null;
     let batasRtLayer = null;
     let batasPatokBatasKeputihLayer = null;
-    const kartometrikKelurahanLayerGroup = L.layerGroup();
-    const kartometrikRwLayerGroup = L.layerGroup();
-    const kartometrikRtLayerGroup = L.layerGroup();
-    const kartometrikPatokBatasKeputihLayerGroup = L.layerGroup();
 
     // Palet warna untuk RW dan RT
     const rwColorPalettes = {
@@ -40,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         2: ["#90EE90", "#32CD32", "#228B22", "#006400", "#008000"], // Hijau
         3: ["#FFB6C1", "#FF69B4", "#C71585", "#DB7093", "#FF1493"], // Merah muda
         4: ["#FFD700", "#FFA500", "#FF8C00", "#DAA520", "#B8860B"], // Kuning-Oranye
-        5: ["#E metaphorical6E6FA", "#D8BFD8", "#9932CC", "#8A2BE2", "#4B0082"], // Ungu
+        5: ["#E6E6FA", "#D8BFD8", "#9932CC", "#8A2BE2", "#4B0082"], // Ungu
         6: ["#FFE4E1", "#F08080", "#DC143C", "#B22222", "#8B0000"], // Merah
         7: ["#98FB98", "#00FF7F", "#00FA9A", "#20B2AA", "#008B8B"], // Hijau muda
         8: ["#F0F8FF", "#B0E0E6", "#5F9EA0", "#4682B4", "#191970"], // Biru tua
@@ -229,213 +222,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-    // Event listener untuk zoom
-    peta.on("zoomend", function () {
-        const currentZoom = peta.getZoom();
-        const isKelurahanActive = document.getElementById("toggle-batas-kelurahan").checked;
-        const isRwActive = document.getElementById("toggle-batas-rw").checked;
-        const isRtActive = document.getElementById("toggle-batas-rt").checked;
-        const isPatokBatasKeputihActive = document.getElementById("toggle-batas-patok-batas-keputih").checked;
-
-        // Kelurahan: Tampilkan titik kartometrik
-        if (currentZoom >= 15 && isKelurahanActive && batasKelurahanLayer && batasKelurahanLayer.data) {
-            batasKelurahanLayer.data.features.forEach((feature) => {
-                if (feature.geometry && feature.geometry.type === "Polygon") {
-                    const coordinates = feature.geometry.coordinates[0];
-                    coordinates.forEach((coord) => {
-                        const [lng, lat] = coord;
-                        const key = `kelurahan_${lat},${lng}`;
-                        if (!markerMap.has(key)) {
-                            const marker = L.marker([lat, lng], {
-                                icon: L.divIcon({
-                                    className: "kartometrik-marker-kelurahan",
-                                    html: `
-                                        <div style="
-                                            width: 12px;
-                                            height: 12px;
-                                            border-radius: 50%;
-                                            background: radial-gradient(circle, black 2px, transparent 2px);
-                                            background-size: 4px 4px;
-                                            background-color: blue;
-                                            border: 1px solid black;
-                                        "></div>
-                                    `,
-                                    iconSize: [12, 12],
-                                }),
-                            });
-                            marker.bindPopup(
-                                `<b>Titik Kartometrik Kelurahan</b><br>` +
-                                `Lintang: ${lat.toFixed(6)}<br>` +
-                                `Bujur: ${lng.toFixed(6)}`
-                            );
-                            markerMap.set(key, marker);
-                            marker.addTo(kartometrikKelurahanLayerGroup);
-                        }
-                    });
-                }
-            });
-            kartometrikKelurahanLayerGroup.addTo(peta);
-        } else {
-            kartometrikKelurahanLayerGroup.clearLayers();
-            markerMap.forEach((marker, key) => {
-                if (key.startsWith("kelurahan_")) {
-                    markerMap.delete(key);
-                }
-            });
-        }
-
-        // RW: Tampilkan titik kartometrik
-        if (currentZoom >= 15 && isRwActive && batasRwLayer && batasRwLayer.data) {
-            batasRwLayer.data.features.forEach((feature) => {
-                if (feature.geometry && feature.geometry.type === "Polygon") {
-                    const coordinates = feature.geometry.coordinates[0];
-                    coordinates.forEach((coord) => {
-                        const [lng, lat] = coord;
-                        const key = `rw_${lat},${lng}`;
-                        if (!markerMap.has(key)) {
-                            const marker = L.marker([lat, lng], {
-                                icon: L.divIcon({
-                                    className: "kartometrik-marker-rw",
-                                    html: `
-                                        <div style="
-                                            width: 12px;
-                                            height: 12px;
-                                            border-radius: 50%;
-                                            background: radial-gradient(circle, black 2px, transparent 2px);
-                                            background-size: 4px 4px;
-                                            background-color: red;
-                                            border: 1px solid black;
-                                        "></div>
-                                    `,
-                                    iconSize: [12, 12],
-                                }),
-                            });
-                            marker.bindPopup(
-                                `<b>Titik Kartometrik RW</b><br>` +
-                                `Lintang: ${lat.toFixed(6)}<br>` +
-                                `Bujur: ${lng.toFixed(6)}`
-                            );
-                            markerMap.set(key, marker);
-                            marker.addTo(kartometrikRwLayerGroup);
-                        }
-                    });
-                }
-            });
-            kartometrikRwLayerGroup.addTo(peta);
-        } else {
-            kartometrikRwLayerGroup.clearLayers();
-            markerMap.forEach((marker, key) => {
-                if (key.startsWith("rw_")) {
-                    markerMap.delete(key);
-                }
-            });
-        }
-
-        // RT: Tampilkan titik kartometrik
-        if (currentZoom >= 15 && isRtActive && batasRtLayer && batasRtLayer.data) {
-            batasRtLayer.data.features.forEach((feature) => {
-                const coordinates = feature.geometry.type === "Polygon"
-                    ? feature.geometry.coordinates[0]
-                    : feature.geometry.type === "MultiPolygon"
-                        ? feature.geometry.coordinates[0][0] // Ambil poligon pertama
-                        : [];
-                coordinates.forEach((coord) => {
-                    const [lng, lat] = coord;
-                    const key = `rt_${lat},${lng}`;
-                    if (!markerMap.has(key)) {
-                        const rw = feature.properties.RW;
-                        const rt = feature.properties.RT;
-                        const palette = rwColorPalettes[rw] || ["#00ff00"];
-                        const colorIndex = (rt - 1) % palette.length;
-                        const marker = L.marker([lat, lng], {
-                            icon: L.divIcon({
-                                className: "kartometrik-marker-rt",
-                                html: `
-                                    <div style="
-                                        width: 12px;
-                                        height: 12px;
-                                        border-radius: 50%;
-                                        background: radial-gradient(circle, black 2px, transparent 2px);
-                                        background-size: 4px 4px;
-                                        background-color: ${palette[colorIndex]};
-                                        border: 1px solid black;
-                                    "></div>
-                                `,
-                                iconSize: [12, 12],
-                            }),
-                        });
-                        marker.bindPopup(
-                            `<b>Titik Kartometrik RT</b><br>` +
-                            `RW: ${rw}<br>` +
-                            `RT: ${rt}<br>` +
-                            `Lintang: ${lat.toFixed(6)}<br>` +
-                            `Bujur: ${lng.toFixed(6)}`
-                        );
-                        markerMap.set(key, marker);
-                        marker.addTo(kartometrikRtLayerGroup);
-                    }
-                });
-            });
-            kartometrikRtLayerGroup.addTo(peta);
-        } else {
-            kartometrikRtLayerGroup.clearLayers();
-            markerMap.forEach((marker, key) => {
-                if (key.startsWith("rt_")) {
-                    markerMap.delete(key);
-                }
-            });
-        }
-
-        // Patok Batas Keputih: Tampilkan titik kartometrik
-        if (currentZoom >= 15 && isPatokBatasKeputihActive && batasPatokBatasKeputihLayer && batasPatokBatasKeputihLayer.data) {
-            batasPatokBatasKeputihLayer.data.features.forEach((feature) => {
-                const coordinates = feature.geometry.type === "Polygon"
-                    ? feature.geometry.coordinates[0]
-                    : feature.geometry.type === "MultiPolygon"
-                        ? feature.geometry.coordinates[0][0] // Ambil poligon pertama
-                        : [];
-                coordinates.forEach((coord) => {
-                    const [lng, lat] = coord;
-                    const key = `patok-batas-keputih_${lat},${lng}`;
-                    if (!markerMap.has(key)) {
-                        const marker = L.marker([lat, lng], {
-                            icon: L.divIcon({
-                                className: "kartometrik-marker-patok-batas-keputih",
-                                html: `
-                                    <div style="
-                                        width: 12px;
-                                        height: 12px;
-                                        border-radius: 50%;
-                                        background: radial-gradient(circle, black 2px, transparent 2px);
-                                        background-size: 4px 4px;
-                                        background-color: purple;
-                                        border: 1px solid black;
-                                    "></div>
-                                `,
-                                iconSize: [12, 12],
-                            }),
-                        });
-                        marker.bindPopup(
-                            `<b>Titik Kartometrik Patok Batas Keputih</b><br>` +
-                            `Lintang: ${lat.toFixed(6)}<br>` +
-                            `Bujur: ${lng.toFixed(6)}`
-                        );
-                        markerMap.set(key, marker);
-                        marker.addTo(kartometrikPatokBatasKeputihLayerGroup);
-                    }
-                });
-            });
-            kartometrikPatokBatasKeputihLayerGroup.addTo(peta);
-        } else {
-            kartometrikPatokBatasKeputihLayerGroup.clearLayers();
-            markerMap.forEach((marker, key) => {
-                if (key.startsWith("patok-batas-keputih_")) {
-                    markerMap.delete(key);
-                }
-            });
-        }
-    });
-
     // Muat data awal
     loadBatasKelurahan();
     loadBatasRw();
@@ -447,20 +233,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (this.checked) {
             if (batasKelurahanLayer) {
                 batasKelurahanLayer.addTo(peta);
-                const currentZoom = peta.getZoom();
-                if (currentZoom >= 15) {
-                    peta.fire("zoomend");
-                }
             }
         } else {
             if (batasKelurahanLayer) {
                 peta.removeLayer(batasKelurahanLayer);
-                kartometrikKelurahanLayerGroup.clearLayers();
-                markerMap.forEach((marker, key) => {
-                    if (key.startsWith("kelurahan_")) {
-                        markerMap.delete(key);
-                    }
-                });
             }
         }
     });
@@ -470,20 +246,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (this.checked) {
             if (batasRwLayer) {
                 batasRwLayer.addTo(peta);
-                const currentZoom = peta.getZoom();
-                if (currentZoom >= 15) {
-                    peta.fire("zoomend");
-                }
             }
         } else {
             if (batasRwLayer) {
                 peta.removeLayer(batasRwLayer);
-                kartometrikRwLayerGroup.clearLayers();
-                markerMap.forEach((marker, key) => {
-                    if (key.startsWith("rw_")) {
-                        markerMap.delete(key);
-                    }
-                });
             }
         }
     });
@@ -493,20 +259,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (this.checked) {
             if (batasRtLayer) {
                 batasRtLayer.addTo(peta);
-                const currentZoom = peta.getZoom();
-                if (currentZoom >= 15) {
-                    peta.fire("zoomend");
-                }
             }
         } else {
             if (batasRtLayer) {
                 peta.removeLayer(batasRtLayer);
-                kartometrikRtLayerGroup.clearLayers();
-                markerMap.forEach((marker, key) => {
-                    if (key.startsWith("rt_")) {
-                        markerMap.delete(key);
-                    }
-                });
             }
         }
     });
@@ -516,20 +272,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (this.checked) {
             if (batasPatokBatasKeputihLayer) {
                 batasPatokBatasKeputihLayer.addTo(peta);
-                const currentZoom = peta.getZoom();
-                if (currentZoom >= 15) {
-                    peta.fire("zoomend");
-                }
             }
         } else {
             if (batasPatokBatasKeputihLayer) {
                 peta.removeLayer(batasPatokBatasKeputihLayer);
-                kartometrikPatokBatasKeputihLayerGroup.clearLayers();
-                markerMap.forEach((marker, key) => {
-                    if (key.startsWith("patok-batas-keputih_")) {
-                        markerMap.delete(key);
-                    }
-                });
             }
         }
     });
