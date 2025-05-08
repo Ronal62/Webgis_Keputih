@@ -43,7 +43,7 @@
         <ul>
           <li><a href="index.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>">Home</a></li>
           <li><a href="peta.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'peta.php') ? 'active' : ''; ?>">Peta & inventarisasi</a></li>
-          <li><a href="#contact" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'contact.php') ? 'active' : ''; ?>">Contact</a></li>
+          <!-- <li><a href="#contact" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'contact.php') ? 'active' : ''; ?>">Contact</a></li> -->
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>

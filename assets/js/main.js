@@ -207,3 +207,38 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+document.querySelector('.php-email-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let form = this;
+    let formData = new FormData(form);
+    let loading = form.querySelector('.loading');
+    let errorMessage = form.querySelector('.error-message');
+    let sentMessage = form.querySelector('.sent-message');
+
+    loading.style.display = 'block';
+    errorMessage.style.display = 'none';
+    sentMessage.style.display = 'none';
+
+    fetch(form.action, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        loading.style.display = 'none';
+        if (data.status === 'success') {
+            sentMessage.style.display = 'block';
+            sentMessage.innerHTML = data.message;
+            form.reset();
+        } else {
+            errorMessage.style.display = 'block';
+            errorMessage.innerHTML = data.message;
+        }
+    })
+    .catch(error => {
+        loading.style.display = 'none';
+        errorMessage.style.display = 'block';
+        errorMessage.innerHTML = 'Terjadi kesalahan. Silakan coba lagi.';
+    });
+});
