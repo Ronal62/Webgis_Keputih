@@ -6,7 +6,7 @@ include 'header.php';
 <main class="main">
 
     <!-- Page Title -->
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.webp);">
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/3.png);">
       <div class="container position-relative">
         <h1>Peta & Titik Kartometrik</h1>
         <p>INFORMASI SPASIAL DAN INVENTARIS OBJEK RUPA BUMI</p>

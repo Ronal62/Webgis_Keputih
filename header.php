@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title><?php echo isset($page_title) ? $page_title : 'Dewi Bootstrap Template'; ?></title>
+  <title><?php echo isset($page_title) ? $page_title : 'SATU PETA KEPUTIIH'; ?></title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
