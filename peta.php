@@ -1,5 +1,4 @@
 <?php 
-$page_title = 'Peta & Titik Kartometrik - Dewi Bootstrap Template';
 include 'header.php'; 
 ?>
 
@@ -8,7 +7,7 @@ include 'header.php';
     <!-- Page Title -->
     <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/3.png);">
       <div class="container position-relative">
-        <h1>Peta & Titik Kartometrik</h1>
+        <h1>SATU PETA KEPUTIH</h1>
         <p>INFORMASI SPASIAL DAN INVENTARIS OBJEK RUPA BUMI</p>
         <nav class="breadcrumbs">
           <ol>
@@ -54,13 +53,15 @@ include 'header.php';
         <div class="row">
             <div class="col-12">
                 <div class="map-container">
-                    <div id="batas-kelurahan"></div>
+                    <div id="batas-kelurahan" style="height: 600px;"></div> <!-- Added inline height -->
                 </div>
             </div>
         </div>
       </div>
 
     </section><!-- /Starter Section Section -->
+
+    
 
 </main>
 
