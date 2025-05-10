@@ -15,11 +15,27 @@ document.addEventListener("DOMContentLoaded", function () {
     // Buat instance peta dan atur tampilan awal ke Surabaya, Indonesia
     const peta = L.map("batas-kelurahan").setView([-7.2575, 112.7521], 12);
 
-    // Tambahkan lapisan ubin dari OpenStreetMap
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    // Definisikan basemap OpenStreetMap
+    const osmLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
         attribution: '© <a href="https://www.openstreetmap.org/copyright">Kontributor OpenStreetMap</a>',
-    }).addTo(peta);
+    });
+
+    // Definisikan basemap Imagery (Esri World Imagery)
+    const imageryLayer = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
+        maxZoom: 19,
+        attribution: '© <a href="https://www.esri.com/">Esri</a>, Maxar, Earthstar Geographics, and the GIS User Community',
+    });
+
+    // Tambahkan Imagery sebagai basemap default
+    imageryLayer.addTo(peta);
+
+    // Tambahkan kontrol layer untuk memilih basemap
+    const baseMaps = {
+        "OpenStreetMap": osmLayer,
+        "Imagery": imageryLayer
+    };
+    L.control.layers(baseMaps).addTo(peta);
 
     // Lapisan untuk batas kelurahan, RW, RT, Patok Batas Keputih, dan inventarisasi
     let batasKelurahanLayer = null;

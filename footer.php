@@ -71,6 +71,7 @@
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="assets/js/peta.js"></script>
+<script src="assets/js/inventaris.js"></script>
 
 <!-- Inisialisasi AOS -->
 <script>

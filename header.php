@@ -44,15 +44,18 @@
         <img src="assets/img/logo2.png" alt="" style="height: 80px; width: auto;">
         <img src="assets/img/logo3.png" alt="" style="height: 80px; width: auto;">
       </a>
-
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>">Home</a></li>
-          <li><a href="peta.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'peta.php') ? 'active' : ''; ?>">Peta & inventarisasi</a></li>
-          <!-- <li><a href="#contact" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'contact.php') ? 'active' : ''; ?>">Contact</a></li> -->
+          <li class="dropdown"><a href="#"><span>Menu</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="peta.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'peta.php') ? 'active' : ''; ?>">Peta</a></li>
+              <li><a href="inventaris.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'inventaris.php') ? 'active' : ''; ?>">Inventarisasi</a></li>
+            </ul>
+          </li>
+          <li><a href="portfolio.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'portfolio.php') ? 'active' : ''; ?>">Portfolio</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
     </div>
   </header>
