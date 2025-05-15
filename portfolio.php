@@ -36,8 +36,8 @@ include 'style.php';
                                 </div>
                                 <div class="col-12 col-md-8">
                                     <h5 class="team-name">Talitha Sahda Raissa Tjahjana</h5>
-                                    <p class="team-role text-muted">Model</p>
-                                    <h5 class="team-desc">Talitha is a skilled programmer with extensive expertise in web and application development. She is recognized for her creativity in designing visually appealing and functional solutions.</h5>
+                                    <p class="team-role text-muted">Digitasi dan Visualisasi Peta</p>
+                                    <h5 class="team-desc">Talitha mengolah data hasil survei menjadi bentuk peta digital melalui proses digitasi. Ia memastikan batas wilayah dan posisi fasilitas umum divisualisasikan secara jelas, akurat, dan menarik secara estetika. Dalam platform WebGIS, kontribusinya hadir dalam bentuk peta interaktif yang mudah diakses oleh masyarakat dan pihak terkait.</h5>
                                 </div>
                             </div>
                         </div>
@@ -48,8 +48,8 @@ include 'style.php';
                                 </div>
                                 <div class="col-12 col-md-8">
                                     <h5 class="team-name">Ahmad Himami Ramadlan</h5>
-                                    <p class="team-role text-muted">Front-End Programmer</p>
-                                    <h5 class="team-desc">Ahmad Himami Ramadlan is a dedicated front-end programmer with a strong focus on creating seamless and user-friendly interfaces. His expertise ensures high-quality, responsive designs that enhance user experiences.</h5>
+                                    <p class="team-role text-muted">Operator GNSS dan Pengolah Data</p>
+                                    <h5 class="team-desc">Himami berperan penting dalam aspek teknis pengukuran. Ia menangani penggunaan alat GNSS untuk pemetaan batas wilayah dan pencatatan koordinat fasilitas umum. Selain itu, ia juga bertanggung jawab dalam proses pengolahan data mentah menjadi informasi geospasial yang siap digunakan pada peta digital.</h5>
                                 </div>
                             </div>
                         </div>
@@ -60,8 +60,8 @@ include 'style.php';
                                 </div>
                                 <div class="col-12 col-md-8">
                                     <h5 class="team-name">Nafi'atus Saprilla</h5>
-                                    <p class="team-role text-muted">Creative Lead</p>
-                                    <h5 class="team-desc">Nafi'atus excels as a creative professional with deep knowledge of web and app development. Her innovative approach results in designs that are both captivating and practical.</h5>
+                                    <p class="team-role text-muted">Dokumentator dan Pengelola Data</p>
+                                    <h5 class="team-desc">Prilla memiliki peran krusial dalam mencatat setiap hasil survei serta mendokumentasikan proses kerja tim. Ia bertanggung jawab dalam menyusun arsip data, foto lapangan, serta laporan teknis yang akan menjadi landasan utama dalam pemetaan digital. Ia juga mengelola sistem penyimpanan data agar dapat diakses dan diproses dengan efisien.</h5>
                                 </div>
                             </div>
                         </div>
@@ -72,8 +72,8 @@ include 'style.php';
                                 </div>
                                 <div class="col-12 col-md-8">
                                     <h5 class="team-name">Mohammad Rifqi Alfarizi</h5>
-                                    <p class="team-role text-muted">Data Analyst</p>
-                                    <h5 class="team-desc">Rifqi is a proficient data analyst with a strong background in data processing and analysis. His analytical skills drive insightful, data-driven decisions for impactful outcomes.</h5>
+                                    <p class="team-role text-muted">Ketua Tim</p>
+                                    <h5 class="team-desc">Sebagai ketua, Rifqi bertanggung jawab penuh dalam mengarahkan dan mengelola seluruh kegiatan tim. Ia mengoordinasikan jadwal survei, membagi tugas secara efektif, serta memastikan komunikasi antara tim dan mitra lapangan berjalan lancar. Kepemimpinannya menjadi kunci dalam menyatukan berbagai elemen teknis maupun administratif selama pelaksanaan proyek.</h5>
                                 </div>
                             </div>
                         </div>
@@ -84,8 +84,8 @@ include 'style.php';
                                 </div>
                                 <div class="col-12 col-md-8">
                                     <h5 class="team-name">Maulana Khoir Zamzami</h5>
-                                    <p class="team-role text-muted">Back-End Programmer</p>
-                                    <h5 class="team-desc">Maulana is an accomplished back-end programmer specializing in robust web and application development. His technical expertise ensures reliable and scalable solutions.</h5>
+                                    <p class="team-role text-muted">Surveyor Lapangan</p>
+                                    <h5 class="team-desc">Khoir bertugas melakukan survei langsung di lapangan. Ia aktif dalam penandaan titik batas RT, RW, dan kelurahan, serta dalam pendataan lokasi fasilitas umum. Ketelitiannya di lapangan membantu memastikan akurasi data spasial yang dikumpulkan, dan ia juga sering menjadi penghubung awal dengan warga sekitar saat survei berlangsung.</h5>
                                 </div>
                             </div>
                         </div>
@@ -96,8 +96,8 @@ include 'style.php';
                                 </div>
                                 <div class="col-12 col-md-8">
                                     <h5 class="team-name">Vivi Cahyaningrum</h5>
-                                    <p class="team-role text-muted">Graphic Designer</p>
-                                    <h5 class="team-desc">Vivi is a talented graphic designer with a broad understanding of web and app development. She is renowned for her ability to create visually stunning and functional designs.</h5>
+                                    <p class="team-role text-muted">Komunikasi Wilayah dan Validasi Data</p>
+                                    <h5 class="team-desc">Vivi menjadi penghubung antara tim teknis dan pihak lapangan, terutama pengurus RT dan RW. Ia aktif dalam kegiatan validasi, yaitu mencocokkan hasil pengukuran dengan kondisi dan informasi yang diberikan oleh warga setempat. Selain itu, ia juga membantu menyusun narasi sosial dan deskriptif dari fasilitas umum yang telah diinventarisasi.</h5>
                                 </div>
                             </div>
                         </div>
