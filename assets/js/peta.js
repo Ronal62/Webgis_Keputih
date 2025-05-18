@@ -184,6 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         if (feature.properties && feature.properties.RW) {
                             layer.bindPopup(
                                 `<b>RW:</b> ${feature.properties.RW}<br>` +
+                                `<b>Jumlah Penduduk:</b> ${feature.properties.Penduduk}<br>` +
                                 `<b>Shape Length:</b> ${feature.properties.Shape_Leng}<br>` +
                                 `<b>Shape Area:</b> ${feature.properties.Shape_Area}`
                             );
