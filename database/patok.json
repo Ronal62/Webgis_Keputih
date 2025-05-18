@@ -1,0 +1,177 @@
+[
+    {
+        "kode_patok": "K.42",
+        "berbatasan_dengan": "Keputih-Klampisngasem",
+        "longitude": 112.782645,
+        "latitude": -7.289638,
+        "link_foto": "K42_RS PUTRI.jpg"
+    },
+    {
+        "kode_patok": "P15.C394",
+        "berbatasan_dengan": "Mulyorejo-Sukolilo",
+        "longitude": 112.800848,
+        "latitude": -7.284413,
+        "link_foto": "P15 C394_Mulyorejo-Sukolilo.jpg"
+    },
+    {
+        "kode_patok": "P15.C395",
+        "berbatasan_dengan": "Sukolilo-Mulyorejo",
+        "longitude": 112.800854,
+        "latitude": -7.280026,
+        "link_foto": "Jl.Hidrodinamika BRIN.jpg"
+    },
+    {
+        "kode_patok": "P15.C397",
+        "berbatasan_dengan": "Mulyorejo-Sukolilo",
+        "longitude": 112.799430,
+        "latitude": -7.274569,
+        "link_foto": "Jembatan Arah Pakuwon.jpg"
+    },
+    {
+        "kode_patok": "P15.C398",
+        "berbatasan_dengan": "Sukolilo-Mulyorejo",
+        "longitude": 112.797480,
+        "latitude": -7.274612,
+        "link_foto": "Bunderan Mulyosari TMB.jpg"
+    },
+    {
+        "kode_patok": "P15.C399",
+        "berbatasan_dengan": "Sukolilo-Mulyorejo",
+        "longitude": 112.793070,
+        "latitude": -7.275731,
+        "link_foto": "C399_Seberang Halte PENS.jpg"
+    },
+    {
+        "kode_patok": "P17.1000",
+        "berbatasan_dengan": "Keputih-Klampisngasem",
+        "longitude": 112.781505,
+        "latitude": -7.289488,
+        "link_foto": "P17 1000_Sebelah UPB.jpg"
+    },
+    {
+        "kode_patok": "P17.1003",
+        "berbatasan_dengan": "Keputih-Gebang Putih",
+        "longitude": 112.784747,
+        "latitude": -7.287710,
+        "link_foto": "P17 1003_Belakang Convention HALL.jpg"
+    },
+    {
+        "kode_patok": "P17.1005",
+        "berbatasan_dengan": "Gebang Putih-Keputih",
+        "longitude": 112.787742,
+        "latitude": -7.287457,
+        "link_foto": "P17 1005_PUKER.jpg"
+    },
+    {
+        "kode_patok": "P17.1009",
+        "berbatasan_dengan": "Keputih-Gebang Putih",
+        "longitude": 112.790255,
+        "latitude": -7.279664,
+        "link_foto": "P17 1009_Gebang Makam.jpg"
+    },
+    {
+        "kode_patok": "P17.1010",
+        "berbatasan_dengan": "Keputih-Gebang Putih",
+        "longitude": 112.790091,
+        "latitude": -7.278202,
+        "link_foto": "P17 1010_Seberang Pintu Masuk Vokasi.jpg"
+    },
+    {
+        "kode_patok": "P17.1012",
+        "berbatasan_dengan": "Keputih-Gebang Putih",
+        "longitude": 112.800862,
+        "latitude": -7.287252,
+        "link_foto": "P171012_Keputih-Gebang Putih.jpg"
+    },
+    {
+        "kode_patok": "P17.1013",
+        "berbatasan_dengan": "Gebang Putih-Keputih",
+        "longitude": 112.802066,
+        "latitude": -7.285209,
+        "link_foto": "P171013_Gebang Putih-Keputih.jpg"
+    },
+    {
+        "kode_patok": "P17.1017",
+        "berbatasan_dengan": "Keputih - Medokan Semampir",
+        "longitude": 112.801020,
+        "latitude": -7.303942,
+        "link_foto": "P17.1017_Keputih-MedokanSemampir.jpg"
+    },
+    {
+        "kode_patok": "P17.1018",
+        "berbatasan_dengan": "Keputih - Medokan Semampir",
+        "longitude": 112.802376,
+        "latitude": -7.304908,
+        "link_foto": "P17.1018_Keputih-Medokan Semampir.jpg"
+    },
+    {
+        "kode_patok": "P17.986",
+        "berbatasan_dengan": "Keputih - Medokan Semampir",
+        "longitude": 112.790780,
+        "latitude": -7.301705,
+        "link_foto": "P17.986_Keputih-Medokan Semampir.jpg"
+    },
+    {
+        "kode_patok": "P17.987",
+        "berbatasan_dengan": "Keputih - Medokan Semampir",
+        "longitude": 112.789030,
+        "latitude": -7.299760,
+        "link_foto": "P17.987_Keputih-Medokan Semampir.jpg"
+    },
+    {
+        "kode_patok": "P17.989",
+        "berbatasan_dengan": "Medokan Semampir-Keputih",
+        "longitude": 112.788124,
+        "latitude": -7.298340,
+        "link_foto": "P17.989_Medokan Semampir-Keputih.jpg"
+    },
+    {
+        "kode_patok": "P17.990",
+        "berbatasan_dengan": "Keputih - Semolowaru",
+        "longitude": 112.786470,
+        "latitude": -7.296018,
+        "link_foto": "P17.990_Keputih-Semolowaru.jpg"
+    },
+    {
+        "kode_patok": "P17.991",
+        "berbatasan_dengan": "Semolowaru - Klampis Ngasem",
+        "longitude": 112.783730,
+        "latitude": -7.295915,
+        "link_foto": "P17.991_Semolowaru-Klampis Ngasem.jpg"
+    },
+    {
+        "kode_patok": "P17.999",
+        "berbatasan_dengan": "Klampis Ngasem - Keputih",
+        "longitude": 112.784970,
+        "latitude": -7.294414,
+        "link_foto": "P17.999_Klampis Ngasem-Keputih.jpg"
+    },
+    {
+        "kode_patok": "TEMP1",
+        "berbatasan_dengan": "Keputih - Semolowaru",
+        "longitude": 112.784935,
+        "latitude": -7.295970,
+        "link_foto": "Galaksi_Keputih-Semolowaru.jpg"
+    },
+    {
+        "kode_patok": "TEMP2",
+        "berbatasan_dengan": "Keputih - Medokan Semampir",
+        "longitude": 112.792400,
+        "latitude": -7.302068,
+        "link_foto": "Puri_Keputih-Medokan Semampir.jpg"
+    },
+    {
+        "kode_patok": "TEMP3",
+        "berbatasan_dengan": "Keputih - Medokan Semampir",
+        "longitude": 112.799680,
+        "latitude": -7.303538,
+        "link_foto": "Depan TPU_Keputih-Medokan Semampir.jpg"
+    },
+    {
+        "kode_patok": "TEMP4",
+        "berbatasan_dengan": "Keputih - Medokan Semampir",
+        "longitude": 112.801720,
+        "latitude": -7.303933,
+        "link_foto": "TPU_Keputih-Medokan Semampir.jpg"
+    }
+]
