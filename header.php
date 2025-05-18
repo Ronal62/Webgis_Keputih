@@ -51,6 +51,7 @@
             <ul>
               <li><a href="peta.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'peta.php') ? 'active' : ''; ?>">Peta</a></li>
               <li><a href="inventaris.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'inventaris.php') ? 'active' : ''; ?>">Inventarisasi</a></li>
+              <li><a href="table.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'table.php') ? 'active' : ''; ?>">Table</a></li>
             </ul>
           </li>
           <li><a href="portfolio.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'portfolio.php') ? 'active' : ''; ?>">Portfolio</a></li>
