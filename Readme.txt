@@ -6,4 +6,4 @@ how to run this project
 1. open folder on vs code
 2. open terminal on vs code
 3. run this command : php -S localhost:8000
-4. open browser and type : http://localhost:8000
+4. open browser and type : http://localhost:8000 / localhost/nama_folder
